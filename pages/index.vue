@@ -2,6 +2,7 @@
   <main class="main">
     <h1>Hello, Nuxt template!!!</h1>
     <p>by {{ companyName }}</p>
+    <h1>test</h1>
   </main>
 </template>
 
