@@ -1,15 +1,11 @@
 <template>
-  <main class="main">
+  <main>
     <DomainTodo />
   </main>
 </template>
 
-<script lang="ts">
-export default {};
-</script>
-
 <style lang="scss" scoped>
-.main {
+main {
   width: 100%;
   height: 100vh;
   display: flex;
