@@ -1,21 +1,11 @@
 <template>
   <main class="main">
-    <h1>Hello, Nuxt template!!!</h1>
-    <p>by {{ companyName }}</p>
-    <h1>test</h1>
+    <DomainTodo />
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "@nuxtjs/composition-api";
-
-export default defineComponent({
-  setup() {
-    const companyName = ref<string>("Hack'z inc.");
-
-    return { companyName };
-  }
-});
+export default {};
 </script>
 
 <style lang="scss" scoped>
