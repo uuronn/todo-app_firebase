@@ -3,7 +3,7 @@
     <DomainTodo />
     <Sample />
     <button @click="submit">testbutton</button>
-    <h1>{{ this.todos.todo }}</h1>
+    <h1>{{ this.todos }}</h1>
   </main>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     const querySnapshot = await getDocs(collection(db, "todos"));
     const todos = [];
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      // console.log(doc.data());
       todos.push(doc.data());
     });
     return { todos: todos };

@@ -10,7 +10,10 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/plugins/firebase";
+
 export default {
   data() {
     return {
@@ -18,12 +21,15 @@ export default {
     };
   },
   methods: {
-    addTodo() {
+    async addTodo() {
       if (this.todoName) {
         try {
-          console.log("test");
-        } catch {
-          console.log("Error");
+          const docRef = await addDoc(collection(db, "todos"), {
+            todo: this.todoName
+          });
+          // console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
         }
       }
     }
