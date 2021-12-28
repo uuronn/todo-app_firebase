@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <li v-for="(todo, i) in todos" :key="i">
-      {{ todo.title }}
-      <TodoItemButton />
-    </li>
+  <div class="todoItem">
+    {{ todo.todo }}
+    <TodoItemButton :todo="todo" @deleteTodo="deleteTodo" />
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  props: ["todos"],
-  data() {
-    return {};
+  props: ["todo"],
+  methods: {
+    deleteTodo(id) {
+      this.$emit("deleteTodo", id);
+    }
   }
 };
 </script>
+
+<style scoped lang="scss">
+.todoItem {
+  display: flex;
+}
+</style>
