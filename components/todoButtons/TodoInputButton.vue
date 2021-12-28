@@ -4,10 +4,22 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    addTodo() {
+      this.$emit("addTodo");
+    }
+  }
+};
+</script>
+
 <style scoped lang="scss">
 .todoInputButton {
   &__addButton {
     border: solid 1px;
+    width: 80px;
+    height: 20px;
   }
 }
 </style>

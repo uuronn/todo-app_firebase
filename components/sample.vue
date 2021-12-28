@@ -4,9 +4,9 @@
       class="todoInput__form"
       type="text"
       placeholder="taskName"
-      v-model="todoName"
+      :v-model="todoName"
     />
-    <TodoInputButton @addTodo="addTodo" />
+    <!-- <TodoInputButton @addTodo="addTodo"/> -->
   </div>
 </template>
 
@@ -18,15 +18,13 @@ export default {
     };
   },
   methods: {
-    addTodo() {
-      if (this.todoName) {
-        try {
-          console.log("test");
-        } catch {
-          console.log("Error");
-        }
-      }
-    }
+    // async addTodo() {
+    //   try {
+    //     console.log("test")
+    //   } catch {
+    //   console.log("Error adding document: ");
+    //   }
+    // }
   }
 };
 </script>
@@ -36,8 +34,6 @@ export default {
   display: flex;
   &__form {
     border: solid 1px;
-    width: 180px;
-    height: 20px;
   }
 }
 </style>
