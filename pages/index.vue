@@ -1,9 +1,9 @@
 <template>
   <main>
-    <DomainTodo />
-    <Sample />
-    <button @click="submit">testbutton</button>
-    <h1>{{ this.todos }}</h1>
+    <TodoInput />
+    <TodoList :todos="todos" />
+    <!-- <button @click="submit">testbutton</button> -->
+    <!-- <h1>{{ this.todos }}</h1> -->
   </main>
 </template>
 

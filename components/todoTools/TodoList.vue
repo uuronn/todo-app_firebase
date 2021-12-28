@@ -1,27 +1,17 @@
 <template>
   <div>
     <ul>
-      <TodoItem :todos="todos" />
+      <li v-for="(todo, i) in todos" :key="i">
+        {{ todo.todo }}
+        <button class="todoList__button">削除</button>
+      </li>
+      <!-- <TodoItem v-for="(todo, i) in todos" :key="i"/> -->
     </ul>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  data() {
-    return {
-      todos: [
-        {
-          title: "タスク１"
-        },
-        {
-          title: "タスク２"
-        },
-        {
-          title: "タスク３"
-        }
-      ]
-    };
-  }
+  props: ["todos"]
 };
 </script>
