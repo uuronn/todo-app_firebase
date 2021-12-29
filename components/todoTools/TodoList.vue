@@ -17,7 +17,11 @@ export default {
   methods: {
     async deleteTodo(id) {
       try {
-        deleteDoc(doc(db, "todos", id));
+        await deleteDoc(doc(db, "todos", id));
+        location.reload();
+        // setTimeout(function(){
+        //   location.reload()
+        // }, 1000);
         // const shot = await getDocs(collection(db, "todos"));
         // const response = await this.$axios.$delete(`https://yukinissie.dev/api/todos/${this.todos[i].id}`)
         // console.log(response)
