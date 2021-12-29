@@ -69,6 +69,7 @@ export default {
   methods: {
     async logout() {
       await auth.signOut();
+      location.reload();
     },
     loginhundler() {
       const provider = new GoogleAuthProvider();
