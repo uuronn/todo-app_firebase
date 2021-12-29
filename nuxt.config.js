@@ -4,7 +4,7 @@ export default {
     htmlAttrs: {
       lang: "ja"
     },
-    title: "nuxt-template",
+    title: "Cat Todo",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -56,7 +56,7 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/firebase.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
