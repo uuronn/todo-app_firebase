@@ -1,9 +1,12 @@
 <template>
   <main>
+    <button @click="loginhundler">ログイン</button>
     <TodoInput />
     <TodoList :todos="todos" />
+    <p>ユーザー名：{{ userId }}</p>
     <!-- <button @click="submit">testbutton</button> -->
     <!-- <h1>{{ this.todos }}</h1> -->
+    <button @click="logout">logout</button>
   </main>
 </template>
 
@@ -16,13 +19,40 @@ import {
   getDocs,
   Timestamp
 } from "firebase/firestore";
-import { db } from "@/plugins/firebase";
+import { auth, db } from "@/plugins/firebase";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  getAuth,
+  onAuthStateChanged,
+  setPersistence,
+  signInWithEmailAndPassword,
+  browserSessionPersistence,
+  signInWithRedirect,
+  inMemoryPersistence
+} from "firebase/auth";
 
 export default {
   data() {
     return {
-      todos: []
+      todos: [],
+      userId: ""
     };
+  },
+  mounted() {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user.uid);
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        this.userId = user.uid;
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
   },
   async asyncData() {
     const querySnapshot = await getDocs(collection(db, "todos"));
@@ -37,6 +67,74 @@ export default {
     // this.todos = todos
   },
   methods: {
+    async logout() {
+      await auth.signOut();
+    },
+    loginhundler() {
+      const provider = new GoogleAuthProvider();
+
+      //     setPersistence(auth, inMemoryPersistence)
+      // .then(() => {
+      //   const provider = new GoogleAuthProvider();
+      //   // In memory persistence will be applied to the signed in Google user
+      //   // even though the persistence was set to 'none' and a page redirect
+      //   // occurred.
+      //   return signInWithRedirect(auth, provider);
+      // })
+      // .catch((error) => {
+      //   // Handle Errors here.
+      //   const errorCode = error.code;
+      //   const errorMessage = error.message;
+      // });
+
+      setPersistence(auth, browserSessionPersistence)
+        .then(() => {
+          // Existing and future Auth states are now persisted in the current
+          // session only. Closing the window would clear any existing state even
+          // if a user forgets to sign out.
+          // ...
+          // New sign-in will be persisted with session persistence.
+          return signInWithEmailAndPassword(auth, email, password);
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+
+      /*ユーザーがログインしているかどうかを取得 */
+      //   const user = auth.currentUser;
+      // if (user) {
+      //   // User is signed in, see docs for a list of available properties
+      //   // https://firebase.google.com/docs/reference/js/firebase.User
+      //   // ...
+      // } else {
+      //   // No user is signed in.
+      // }
+      // ---------------------------------------------------ここまで
+
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const user = result.user;
+          // The signed-in user info.
+          // this.userId = user.uid
+
+          // ...
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+        });
+    }
     //     async submit() {
     //       const docData = {
     //     stringExample: "Hello world!",
