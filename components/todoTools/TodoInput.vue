@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
 export default {
@@ -25,10 +25,10 @@ export default {
       if (this.todoName) {
         try {
           const docRef = await addDoc(collection(db, "todos"), {
-            todo: this.todoName
+            title: this.todoName
           });
-          location.reload();
           console.log("Document written with ID: ", docRef.id);
+          location.reload();
         } catch (e) {
           console.error("Error adding document: ", e);
         }

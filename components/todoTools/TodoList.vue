@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { doc, deleteDoc, getDoc, collection } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
 export default {

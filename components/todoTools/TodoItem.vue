@@ -1,6 +1,6 @@
 <template>
   <div class="todoItem">
-    {{ todo.todo }}
+    {{ todo.title }}
     <TodoItemButton :todo="todo" @deleteTodo="deleteTodo" />
   </div>
 </template>

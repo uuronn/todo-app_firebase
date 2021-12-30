@@ -3,9 +3,7 @@
     <button @click="loginhundler">ログイン</button>
     <TodoInput />
     <TodoList :todos="todos" />
-    <p>ユーザー名：{{ userId }}</p>
-    <!-- <button @click="submit">testbutton</button> -->
-    <!-- <h1>{{ this.todos }}</h1> -->
+    <p>ユーザー名:{{ userId }}</p>
     <button @click="logout">logout</button>
   </main>
 </template>
@@ -59,7 +57,7 @@ export default {
     const todos = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
-      todos.push({ todo: doc.data().todo, id: doc.id });
+      todos.push({ title: doc.data().todo, id: doc.id });
       // TODO {todo: string, id: string}
     });
     console.log(todos);
