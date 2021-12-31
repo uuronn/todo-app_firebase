@@ -9,26 +9,9 @@
 </template>
 
 <script>
-import {
-  doc,
-  setDoc,
-  collection,
-  addDoc,
-  getDocs,
-  Timestamp
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "@/plugins/firebase";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  getAuth,
-  onAuthStateChanged,
-  setPersistence,
-  signInWithEmailAndPassword,
-  browserSessionPersistence,
-  signInWithRedirect,
-  inMemoryPersistence
-} from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default {
   data() {
