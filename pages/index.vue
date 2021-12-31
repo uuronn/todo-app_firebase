@@ -57,7 +57,7 @@ export default {
     const todos = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
-      todos.push({ title: doc.data().todo, id: doc.id });
+      todos.push({ title: doc.data().title, id: doc.id });
       // TODO {todo: string, id: string}
     });
     console.log(todos);
