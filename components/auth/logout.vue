@@ -6,15 +6,23 @@
 
 <script>
 import { auth } from "@/plugins/firebase";
+import { defineComponent } from "@vue/composition-api";
 
-export default {
-  methods: {
-    async logout() {
-      await auth.signOut();
-      location.reload();
-    }
+export default defineComponent({
+  setup() {
+    const logout = async () => {
+      try {
+        await auth.signOut();
+        location.reload();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    return {
+      logout
+    };
   }
-};
+});
 </script>
 
 <style scoped lang="scss">
