@@ -10,6 +10,7 @@ import { defineComponent } from "@vue/composition-api";
 
 export default defineComponent({
   setup() {
+    // 書き換えれそう
     const logout = async () => {
       try {
         await auth.signOut();

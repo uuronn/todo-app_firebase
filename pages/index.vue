@@ -1,39 +1,22 @@
 <template>
   <main>
+    <AuthUserId />
     <AuthLogin />
+    <AuthLogout />
     <TodoInput />
     <TodoList :todos="todos" />
-    <p>ユーザー名:{{ userId }}</p>
-    <AuthLogout />
   </main>
 </template>
 
 <script>
 import { collection, getDocs } from "firebase/firestore";
-import { auth, db } from "@/plugins/firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { db } from "@/plugins/firebase";
 
 export default {
   data() {
     return {
-      todos: [],
-      userId: ""
+      todos: []
     };
-  },
-  mounted() {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user.uid);
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        this.userId = user.uid;
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
   },
   async asyncData() {
     const querySnapshot = await getDocs(collection(db, "todos"));
