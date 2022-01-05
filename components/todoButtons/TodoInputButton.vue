@@ -4,14 +4,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {
-    addTodo() {
-      this.$emit("addTodo");
-    }
-  }
+<script lang="ts">
+import { defineComponent, SetupContext } from "@vue/composition-api";
+
+type Props = {
+  todoName: String;
 };
+
+export default defineComponent({
+  setup(props: Props, context: SetupContext) {
+    const addTodo = () => {
+      context.emit("addTodo", props.todoName);
+    };
+    return {
+      addTodo
+    };
+  }
+});
 </script>
 
 <style scoped lang="scss">
