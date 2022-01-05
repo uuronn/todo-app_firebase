@@ -3,8 +3,10 @@
     <AuthUserId />
     <AuthLogin />
     <AuthLogout />
-    <TodoInput />
-    <TodoList :todos="todos" />
+    <div class="todos">
+      <TodoInput />
+      <TodoList :todos="todos" />
+    </div>
   </main>
 </template>
 
@@ -40,5 +42,10 @@ main {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+}
+.todos {
+  position: absolute;
+  left: 30px;
+  top: 30px;
 }
 </style>
