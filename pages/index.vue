@@ -10,7 +10,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
@@ -22,7 +22,7 @@ export default {
   },
   async asyncData() {
     const querySnapshot = await getDocs(collection(db, "todos"));
-    const todos = [];
+    const todos: Array<any> = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
       todos.push({ title: doc.data().title, id: doc.id });

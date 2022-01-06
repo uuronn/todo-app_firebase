@@ -6,11 +6,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: ["todo"],
   methods: {
-    deleteTodo(id) {
+    deleteTodo(id: number) {
       this.$emit("deleteTodo", id);
     }
   }

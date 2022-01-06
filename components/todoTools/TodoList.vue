@@ -8,14 +8,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
 export default {
   props: ["todos"],
   methods: {
-    async deleteTodo(id) {
+    async deleteTodo(id: number) {
       try {
         await deleteDoc(doc(db, "todos", id));
         location.reload();

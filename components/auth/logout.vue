@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { auth } from "@/plugins/firebase";
 import { defineComponent } from "@vue/composition-api";
 

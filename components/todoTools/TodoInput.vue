@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
