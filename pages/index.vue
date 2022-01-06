@@ -1,9 +1,9 @@
 <template>
-  <main>
+  <main class="main">
     <AuthUserId />
     <AuthLogin />
     <AuthLogout />
-    <div class="todos">
+    <div class="main__container">
       <TodoInput />
       <TodoList :todos="todos" />
     </div>
@@ -42,10 +42,11 @@ main {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-}
-.todos {
-  position: absolute;
-  left: 30px;
-  top: 30px;
+
+  &__container {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+  }
 }
 </style>

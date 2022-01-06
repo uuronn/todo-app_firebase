@@ -1,13 +1,13 @@
 <template>
   <div class="userId">
-    <p class="userId__id">ユーザー名:{{ userId }}</p>
+    <p class="userId__content">ユーザー名:{{ userId }}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "@nuxtjs/composition-api";
-import { auth } from "@/plugins/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/plugins/firebase";
 
 export default defineComponent({
   setup() {
