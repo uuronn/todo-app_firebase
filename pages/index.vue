@@ -1,8 +1,8 @@
 <template>
   <main class="main">
-    <AuthUserId />
-    <AuthLogin />
-    <AuthLogout />
+    <UserId />
+    <Login />
+    <Logout />
     <div class="main__container">
       <TodoInput />
       <TodoList :todos="todos" />
