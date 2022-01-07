@@ -15,8 +15,9 @@ import { db } from "@/plugins/firebase";
 export default {
   props: ["todos"],
   methods: {
-    async deleteTodo(id: number) {
+    async deleteTodo(id: string) {
       try {
+        console.log(id);
         await deleteDoc(doc(db, "todos", id));
         location.reload();
       } catch (e) {
@@ -26,5 +27,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss"></style>

@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async addTodo() {
-      console.log("emit繋ぎ成功");
+      // console.log("emit繋ぎ成功");
       if (this.todoName) {
         try {
           const docRef = await addDoc(collection(db, "todos"), {

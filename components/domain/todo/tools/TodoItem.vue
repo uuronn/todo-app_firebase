@@ -9,7 +9,7 @@
 export default {
   props: ["todo"],
   methods: {
-    deleteTodo(id: number) {
+    deleteTodo(id: string) {
       this.$emit("deleteTodo", id);
     }
   }
