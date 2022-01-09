@@ -10,11 +10,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
-export default {
+export default Vue.extend({
   data() {
     return {
       todoName: ""
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     async addTodo() {
-      console.log("emit繋ぎ成功");
+      // console.log("emit繋ぎ成功");
       if (this.todoName) {
         try {
           const docRef = await addDoc(collection(db, "todos"), {
@@ -36,7 +37,7 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
 <style scoped lang="scss">

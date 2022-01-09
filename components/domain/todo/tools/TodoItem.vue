@@ -5,15 +5,17 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   props: ["todo"],
   methods: {
-    deleteTodo(id) {
+    deleteTodo(id: string) {
       this.$emit("deleteTodo", id);
     }
   }
-};
+});
 </script>
 
 <style scoped lang="scss">

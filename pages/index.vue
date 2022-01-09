@@ -1,8 +1,8 @@
 <template>
   <main class="main">
-    <AuthUserId />
-    <AuthLogin />
-    <AuthLogout />
+    <UserId />
+    <Login />
+    <Logout />
     <div class="main__container">
       <TodoInput />
       <TodoList :todos="todos" />
@@ -10,9 +10,14 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
+
+interface todo {
+  title: string;
+  id: string;
+}
 
 export default {
   data() {
@@ -22,7 +27,7 @@ export default {
   },
   async asyncData() {
     const querySnapshot = await getDocs(collection(db, "todos"));
-    const todos = [];
+    const todos: Array<todo> = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
       todos.push({ title: doc.data().title, id: doc.id });

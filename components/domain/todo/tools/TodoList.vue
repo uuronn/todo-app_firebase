@@ -8,15 +8,17 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   props: ["todos"],
   methods: {
-    async deleteTodo(id) {
+    async deleteTodo(id: string) {
       try {
+        console.log(id);
         await deleteDoc(doc(db, "todos", id));
         location.reload();
       } catch (e) {
@@ -24,7 +26,5 @@ export default {
       }
     }
   }
-};
+});
 </script>
-
-<style scoped lang="scss"></style>
