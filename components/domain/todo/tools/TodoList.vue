@@ -11,8 +11,9 @@
 <script lang="ts">
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   props: ["todos"],
   methods: {
     async deleteTodo(id: string) {
@@ -25,5 +26,5 @@ export default {
       }
     }
   }
-};
+});
 </script>

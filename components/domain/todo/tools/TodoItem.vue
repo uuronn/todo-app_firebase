@@ -6,14 +6,16 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+
+export default Vue.extend({
   props: ["todo"],
   methods: {
     deleteTodo(id: string) {
       this.$emit("deleteTodo", id);
     }
   }
-};
+});
 </script>
 
 <style scoped lang="scss">

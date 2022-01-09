@@ -11,10 +11,11 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
 
-export default {
+export default Vue.extend({
   data() {
     return {
       todoName: ""
@@ -36,7 +37,7 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
 <style scoped lang="scss">
