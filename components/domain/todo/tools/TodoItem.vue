@@ -1,6 +1,7 @@
 <template>
   <div class="todoItem">
     {{ todo.title }}
+    <TodoDoneButton :todo="todo" @doneTodo="doneTodo" />
     <TodoItemButton :todo="todo" @deleteTodo="deleteTodo" />
   </div>
 </template>
@@ -11,6 +12,9 @@ import Vue from "vue";
 export default Vue.extend({
   props: ["todo"],
   methods: {
+    doneTodo(id: string) {
+      this.$emit("doneTodo", id);
+    },
     deleteTodo(id: string) {
       this.$emit("deleteTodo", id);
     }
