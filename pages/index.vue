@@ -13,30 +13,33 @@
 <script lang="ts">
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/plugins/firebase";
+import Vue from "vue";
 
-interface todo {
+interface Todo {
   title: string;
   id: string;
 }
 
-export default {
+export default Vue.extend({
   data() {
     return {
-      todos: []
+      todos: [],
+      test: ""
     };
   },
   async asyncData() {
+    // this.$nuxt.$loading.start();
     const querySnapshot = await getDocs(collection(db, "todos"));
-    const todos: Array<todo> = [];
+    const todos: Array<Todo> = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
       todos.push({ title: doc.data().title, id: doc.id });
-      // TODO {todo: string, id: string}
+      // TODO {title: string, id: string}
     });
     console.log(todos);
     return { todos: todos };
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

@@ -87,12 +87,18 @@ export default {
       }
     ]
   ],
+  loading: "./components/Loading.vue",
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/style-resources", "@nuxtjs/google-analytics"],
+  modules: [
+    "@nuxtjs/style-resources",
+    "@nuxtjs/google-analytics",
+    "@nuxtjs/axios"
+  ],
+  axios: {},
 
   googleAnalytics: {
     id: "G-XXXX"
