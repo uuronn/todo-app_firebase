@@ -87,6 +87,7 @@ export default {
       }
     ]
   ],
+  loading: "./components/Loading.vue",
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

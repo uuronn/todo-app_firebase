@@ -28,12 +28,13 @@ export default Vue.extend({
     };
   },
   async asyncData() {
+    // this.$nuxt.$loading.start();
     const querySnapshot = await getDocs(collection(db, "todos"));
     const todos: Array<Todo> = [];
     querySnapshot.forEach((doc) => {
       // console.log(doc.data());
       todos.push({ title: doc.data().title, id: doc.id });
-      // TODO {todo: string, id: string}
+      // TODO {title: string, id: string}
     });
     console.log(todos);
     return { todos: todos };

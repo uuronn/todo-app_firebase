@@ -23,9 +23,9 @@ export default Vue.extend({
   },
   methods: {
     async addTodo() {
-      // console.log("emit繋ぎ成功");
       if (this.todoName) {
         try {
+          this.$nuxt.$loading.start();
           const docRef = await addDoc(collection(db, "todos"), {
             title: this.todoName
           });
