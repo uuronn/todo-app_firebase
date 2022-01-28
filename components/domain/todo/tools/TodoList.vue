@@ -1,9 +1,8 @@
 <template>
   <div>
-    <img :src="catImage" alt="" />
     <ul>
       <li v-for="(todo, i) in todos" :key="i">
-        <TodoItem :todo="todo" @deleteTodo="deleteTodo" @doneTodo="doneTodo" />
+        <TodoItem :todo="todo" @doneTodo="doneTodo" @deleteTodo="deleteTodo" />
       </li>
     </ul>
   </div>
@@ -15,34 +14,29 @@ import { db } from "@/plugins/firebase";
 import Vue from "vue";
 
 export default Vue.extend({
-  data() {
-    return {
-      catImage: ""
-    };
-  },
   props: ["todos"],
   methods: {
     async doneTodo(id: string) {
       try {
-        // alert("test");
-        // console.log(id);
-
-        // await deleteDoc(doc(db, "todos", id));
-        const response = await this.$axios.$get(
-          "https://thatcopy.pw/catapi/rest/"
-        );
-        console.log(response.url);
-        this.$nuxt.$loading.finish();
-        return { catImage: response.url };
+        this.$nuxt.$loading.start();
+        console.log(id);
+        await deleteDoc(doc(db, "todos", id));
+        // const response = await this.$axios.$get(
+        //   "https://thatcopy.pw:443/catapi/rest/"
+        // );
+        // console.log(response);
+        // this.$nuxt.$loading.finish();
         // const test = response.url;
+        // return { catImage: response.url };
         // alert(`猫の画像だよ${test}`)
         // alert("testfdfdf")
-        // location.reload();
+        location.reload();
       } catch (e) {
         console.error(e);
       }
     },
     async deleteTodo(id: string) {
+      console.log("test");
       try {
         this.$nuxt.$loading.start();
         console.log(id);

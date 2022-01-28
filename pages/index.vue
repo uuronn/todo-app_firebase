@@ -27,8 +27,13 @@ export default Vue.extend({
       test: ""
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
+  },
   async asyncData() {
-    // this.$nuxt.$loading.start();
     const querySnapshot = await getDocs(collection(db, "todos"));
     const todos: Array<Todo> = [];
     querySnapshot.forEach((doc) => {
