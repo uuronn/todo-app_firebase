@@ -2,7 +2,7 @@
   <div class="todoItem">
     {{ todo.title }}
     <TodoDoneButton :todo="todo" @doneTodo="doneTodo" />
-    <TodoItemButton :todo="todo" @deleteTodo="deleteTodo" />
+    <TodoDeleteButton :todo="todo" @deleteTodo="deleteTodo" />
   </div>
 </template>
 
