@@ -1,12 +1,12 @@
 <template>
   <main class="main">
-    <UserId />
-    <Login />
-    <Logout />
-    <div class="main__container">
+    <div class="todo">
       <TodoInput />
       <TodoList :todos="todos" />
     </div>
+    <UserId />
+    <Login />
+    <Logout />
   </main>
 </template>
 
@@ -55,11 +55,10 @@ main {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-
-  &__container {
-    position: absolute;
-    left: 30px;
-    top: 30px;
-  }
+}
+.todo {
+  position: absolute;
+  left: 30px;
+  top: 30px;
 }
 </style>

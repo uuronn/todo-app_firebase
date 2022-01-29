@@ -37,13 +37,17 @@ export default Vue.extend({
     },
     async deleteTodo(id: string) {
       console.log("test");
-      try {
-        this.$nuxt.$loading.start();
-        console.log(id);
-        await deleteDoc(doc(db, "todos", id));
-        location.reload();
-      } catch (e) {
-        console.error(e);
+      const result = confirm("削除しますか？");
+      if (result) {
+        try {
+          confirm("削除しますか？");
+          this.$nuxt.$loading.start();
+          console.log(id);
+          await deleteDoc(doc(db, "todos", id));
+          location.reload();
+        } catch (e) {
+          console.error(e);
+        }
       }
     }
   }
