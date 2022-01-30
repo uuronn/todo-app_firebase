@@ -23,8 +23,7 @@ interface Todo {
 export default Vue.extend({
   data() {
     return {
-      todos: [],
-      test: ""
+      todos: []
     };
   },
   mounted() {

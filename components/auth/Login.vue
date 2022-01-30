@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <button class="login__button" @click="loginhandler">ログイン</button>
+    <button class="login__button" @click="loginHandler">ログイン</button>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import {
 
 export default {
   methods: {
-    loginhandler() {
+    loginHandler() {
       const provider = new GoogleAuthProvider();
       //     setPersistence(auth, inMemoryPersistence)
       // .then(() => {

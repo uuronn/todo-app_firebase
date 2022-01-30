@@ -1,6 +1,6 @@
 <template>
-  <div class="todoDeleteButton">
-    <button class="todoDeleteButton__button" @click="deleteTodo(todo.id)">
+  <div class="todoDeleteBtn">
+    <button class="todoDeleteBtn__btn" @click="deleteTodo(todo.id)">
       削除
     </button>
   </div>
@@ -20,8 +20,8 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.todoDeleteButton {
-  &__button {
+.todoDeleteBtn {
+  &__btn {
     border: solid 1px;
   }
 }

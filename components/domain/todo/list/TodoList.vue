@@ -38,9 +38,9 @@ export default Vue.extend({
     async deleteTodo(id: string) {
       console.log("test");
       const result = confirm("削除しますか？");
+      console.log(result);
       if (result) {
         try {
-          confirm("削除しますか？");
           this.$nuxt.$loading.start();
           console.log(id);
           await deleteDoc(doc(db, "todos", id));

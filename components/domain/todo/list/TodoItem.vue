@@ -1,8 +1,9 @@
 <template>
   <div class="todoItem">
+    <TodoCheckBox />
     {{ todo.title }}
-    <TodoDoneButton :todo="todo" @doneTodo="doneTodo" />
-    <TodoDeleteButton :todo="todo" @deleteTodo="deleteTodo" />
+    <TodoDoneBtn :todo="todo" @doneTodo="doneTodo" />
+    <TodoDeleteBtn :todo="todo" @deleteTodo="deleteTodo" />
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="loader-background" v-if="loading">
     <div class="loader"></div>
   </div>

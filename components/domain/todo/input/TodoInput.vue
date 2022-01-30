@@ -6,7 +6,7 @@
       placeholder="taskName"
       v-model="todoName"
     />
-    <TodoInputButton @addTodo="addTodo" />
+    <TodoAddBtn @addTodo="addTodo" />
   </div>
 </template>
 

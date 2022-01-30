@@ -1,6 +1,6 @@
 <template>
-  <div class="todoInputButton">
-    <button class="todoInputButton__addButton" @click="addTodo">追加</button>
+  <div class="todoAddBtn">
+    <button class="todoAddBtn__addButton" @click="addTodo">追加</button>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.todoInputButton {
+.todoAddBtn {
   &__addButton {
     border: solid 1px;
     width: 80px;
