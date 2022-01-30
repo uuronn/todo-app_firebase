@@ -8,17 +8,28 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
 
-export default Vue.extend({
-  props: ["todo"],
-  methods: {
-    doneTodo(id: string) {
-      this.$emit("doneTodo", id);
-    },
-    deleteTodo(id: string) {
-      this.$emit("deleteTodo", id);
+type Props = {
+  todo: object;
+};
+
+export default defineComponent({
+  props: {
+    todo: {
+      type: Object
     }
+  },
+  setup(props: Props, context: SetupContext) {
+    const doneTodo = async (id: string) =>
+      context.emit("doneTodo", id, props.todo);
+    const deleteTodo = async (id: string) =>
+      context.emit("deleteTodo", id, props.todo);
+
+    return {
+      doneTodo,
+      deleteTodo
+    };
   }
 });
 </script>

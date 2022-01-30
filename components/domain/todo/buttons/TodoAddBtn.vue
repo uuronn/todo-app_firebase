@@ -10,14 +10,12 @@ import { defineComponent, SetupContext } from "@nuxtjs/composition-api";
 type Props = {
   todoName: String;
 };
+
 export default defineComponent({
   setup(props: Props, context: SetupContext) {
-    const addTodo = () => {
-      context.emit("addTodo", props.todoName);
-    };
-    return {
-      addTodo
-    };
+    const addTodo = () => context.emit("addTodo", props.todoName);
+
+    return { addTodo };
   }
 });
 </script>
