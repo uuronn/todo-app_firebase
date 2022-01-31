@@ -1,7 +1,7 @@
 <template>
   <div class="todoInput">
     <input
-      class="todoInput__form"
+      class="todoInput__input"
       type="text"
       placeholder="taskName"
       v-model="todoName"
@@ -43,10 +43,14 @@ export default Vue.extend({
 <style scoped lang="scss">
 .todoInput {
   display: flex;
-  &__form {
+  &__input {
+    border-radius: 2px;
     border: solid 1px;
     width: 180px;
     height: 20px;
+    &:focus {
+      background: #bdbdbd;
+    }
   }
 }
 </style>
