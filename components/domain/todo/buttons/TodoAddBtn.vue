@@ -26,6 +26,7 @@ export default defineComponent({
     border: solid 1px;
     width: 80px;
     height: 20px;
+    border-radius: 2px;
   }
 }
 </style>

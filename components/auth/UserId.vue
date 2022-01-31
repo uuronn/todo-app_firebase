@@ -11,7 +11,7 @@ import { auth } from "@/plugins/firebase";
 
 export default defineComponent({
   setup() {
-    const userId = ref("");
+    const userId = ref<string>("");
 
     // ログイン状態を維持させるためのコード
     onMounted(() => {
